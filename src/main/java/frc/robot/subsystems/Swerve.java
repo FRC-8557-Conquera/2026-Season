@@ -206,30 +206,6 @@ public class Swerve extends SubsystemBase {
   
   }
 
-  public double getTilt(){
-    double pitch = swerveDrive.getPitch().getDegrees();
-    double roll = swerveDrive.getRoll().getDegrees();
-    if ((pitch+roll) >=0) {
-      return Math.sqrt(pitch*pitch + roll*roll);
-    } 
-    else {
-      return -Math.sqrt(pitch*pitch + roll*roll);
-    }
-
-}
-
-  public double getPitch() {
-    return swerveDrive.getPitch().getDegrees();
-  }
-
-  public double getRoll() {
-    return swerveDrive.getRoll().getDegrees();
-  }
-
-  public Rotation2d getYaw() {
-    return Rotation2d.fromDegrees(-swerveDrive.getYaw().getDegrees());
-  }
-
   
   public ChassisSpeeds getChassisSpeeds() {
   return swerveDrive.getRobotVelocity();
