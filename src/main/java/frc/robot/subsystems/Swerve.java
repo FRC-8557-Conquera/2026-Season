@@ -86,7 +86,7 @@ public class Swerve extends SubsystemBase {
   
     field = new Field2d();
     SmartDashboard.putData("Field", field);
-    
+    //napıyonuz siz kod yazmayın kapatın robotu
     swerveDrive.setModuleEncoderAutoSynchronize(false, 1);
     swerveDrive.setAngularVelocityCompensation(true, true, 0.1);
     swerveDrive.setModuleStateOptimization(true);

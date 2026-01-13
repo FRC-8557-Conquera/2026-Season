@@ -39,10 +39,6 @@ import frc.lib.config.CTREConfigs;
 
   public void robotPeriodic() {
       CommandScheduler.getInstance().run();
-      SmartDashboard.putString(
-          "pose",
-          m_robotContainer.s_Swerve.getPose().toString()
-      );
   }
   
 
