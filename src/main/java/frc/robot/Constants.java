@@ -5,13 +5,10 @@ import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.util.Units;
 
-
 public final class Constants {
 
- 
-  
   public static final class Swerve {
-    
+
     public static final double stickDeadband = 0.09;
 
     public static final boolean invertGyro = true; // Always ensure Gyro is CCW+ CW-
@@ -20,7 +17,7 @@ public final class Constants {
     public static final double trackWidth = 0.585;
     // Distance between right and left wheels
     public static final double wheelBase = 0.585;
-    // Distance between front and back wheelsxx
+    // Distance between front and back wheels
     public static final double wheelDiameter = Units.inchesToMeters(3.91);
     public static final double wheelCircumference = wheelDiameter * Math.PI;
 
@@ -31,12 +28,12 @@ public final class Constants {
     public static final double angleGearRatio = (12.8 / 1.0); // 12.8:1
 
     public static final SwerveDriveKinematics swerveKinematics =
-      new SwerveDriveKinematics(
-          new Translation2d(wheelBase / 2.0, trackWidth / 2.0),
-          new Translation2d(wheelBase / 2.0, -trackWidth / 2.0),
-          new Translation2d(-wheelBase / 2.0, trackWidth / 2.0),
-          new Translation2d(-wheelBase / 2.0, -trackWidth / 2.0));
-  
+        new SwerveDriveKinematics(
+            new Translation2d(wheelBase / 2.0, trackWidth / 2.0),
+            new Translation2d(wheelBase / 2.0, -trackWidth / 2.0),
+            new Translation2d(-wheelBase / 2.0, trackWidth / 2.0),
+            new Translation2d(-wheelBase / 2.0, -trackWidth / 2.0));
+
     /* Swerve Voltage Compensation */
     public static final double voltageComp = 12.0;
 
@@ -51,7 +48,7 @@ public final class Constants {
     public static final double angleKFF = 0.000;
 
     /* Drive Motor PID Values */
-    public static final double driveKP = 0.0001; 
+    public static final double driveKP = 0.0001;
     public static final double driveKI = 0.00005;
     public static final double driveKD = 0.0005;
     public static final double driveKFF = 0.0;
@@ -62,17 +59,14 @@ public final class Constants {
     public static final double driveKA = 0.27;
 
     /* Drive Motor Conversion Factors */
-    public static final double driveConversionPositionFactor = (wheelDiameter * Math.PI) / driveGearRatio ;
+    public static final double driveConversionPositionFactor = (wheelDiameter * Math.PI) / driveGearRatio;
     public static final double driveConversionVelocityFactor = driveConversionPositionFactor / 60.0;
     public static final double angleConversionFactor = 360.0 / angleGearRatio;
 
     /* Swerve Profiling Values */
     public static final double maxSpeed = 5.0; // meters per second
-    
-    // public static final double maxSpeed = 5880.0 / 60.0 * 0.1633 * 0.1016 *Math.PI; // 5.1 meters per second
-    //public static final double maxAngularVelocity = 11.5; 
-    public static final double maxAngularVelocity = maxSpeed/Math.hypot(trackWidth/2,wheelBase/2); //11.65
-    
+    public static final double maxAngularVelocity = maxSpeed / Math.hypot(trackWidth / 2, wheelBase / 2); // 11.65
+
     /* Neutral Modes */
     public static final IdleMode angleNeutralMode = IdleMode.kBrake;
     public static final IdleMode driveNeutralMode = IdleMode.kBrake;
@@ -83,10 +77,9 @@ public final class Constants {
 
     /* Angle Encoder Invert */
     public static final boolean canCoderInvert = false;
-    
-    public static final double kTranslationVarianceThreshold = 0.1;  // Örneğin, 0.1 metre
-    public static final double kAngleVarianceThreshold = 5.0;  
-    
+
+    public static final double kTranslationVarianceThreshold = 0.1; // meters
+    public static final double kAngleVarianceThreshold = 5.0;
   }
 
   /* ===================== INTAKE ===================== */
@@ -96,7 +89,6 @@ public final class Constants {
     public static final int intakeRoller = 30;
     public static final int intakeFollower1 = 31;
     public static final int intakeFollower2 = 32;
-
 
     public static final IdleMode idleMode = IdleMode.kBrake;
 
@@ -123,7 +115,7 @@ public final class Constants {
     public static final double shootSpeed = 1.0;
     public static final double idleSpeed = 0.15;
 
-    // Angle PID (ileride kapalı döngü için)
+    // Angle PID (for future closed-loop control)
     public static final double angleKP = 0.015;
     public static final double angleKI = 0.0;
     public static final double angleKD = 0.001;

@@ -14,12 +14,12 @@ public class IntakeSubsystem extends SubsystemBase {
 
   private final SparkMax intakeLeft;
   private final SparkMax intakeRight;
-  private final SparkMax intakeAci;
+  private final SparkMax intakeAngle;
 
   public IntakeSubsystem() {
     intakeLeft  = new SparkMax(Constants.Intake.intakeFollower1,MotorType.kBrushless);
     intakeRight = new SparkMax(Constants.Intake.intakeFollower2, MotorType.kBrushless);
-    intakeAci = new SparkMax(Constants.Intake.intakeRoller, MotorType.kBrushless);
+    intakeAngle = new SparkMax(Constants.Intake.intakeRoller, MotorType.kBrushless);
 
     SparkMaxConfig rollerConfig = new SparkMaxConfig();
     rollerConfig
@@ -33,7 +33,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
     intakeLeft.configure(rollerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     intakeRight.configure(rollerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
-    intakeAci.configure(angleConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    intakeAngle.configure(angleConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
   }
 
   // Roller
@@ -54,14 +54,14 @@ public class IntakeSubsystem extends SubsystemBase {
 
   // Angle
   public void angleUp() {
-    intakeAci.set(0.4);
+    intakeAngle.set(0.4);
   }
 
   public void angleDown() {
-    intakeAci.set(-0.4);
+    intakeAngle.set(-0.4);
   }
 
   public void stopAngle() {
-    intakeAci.stopMotor();
+    intakeAngle.stopMotor();
   }
 }
